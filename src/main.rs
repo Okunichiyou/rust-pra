@@ -1,6 +1,9 @@
 fn main() {
     let s = "hello".to_string();
-    let t = s;
-    println!("{}", s);
-    print!("{}", t);
+    print_some(s);
+    print_some(s);
+}
+
+fn print_some(s: String) {
+    println!("{}", s)
 }
