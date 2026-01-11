@@ -1,7 +1,6 @@
 fn main() {
-    let x = 3;
-    let y = x;
-
-    println!("{}", x);
-    println!("{}", y);
+    let s = "hello".to_string();
+    let t = s;
+    println!("{}", s);
+    print!("{}", t);
 }
