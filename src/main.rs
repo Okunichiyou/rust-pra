@@ -1,9 +1,10 @@
 fn main() {
-    let s = "hello".to_string();
-    print_some(&s);
-    print_some(&s);
+    let mut s = "hello".to_string();
+    println!("s= {}", s);
+    clear_s(&mut s);
+    println!("s= {}", s);
 }
 
-fn print_some(s: &String) {
-    println!("{}", *s)
+fn clear_s(s: &mut String) {
+    s.clear();
 }
