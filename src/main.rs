@@ -11,6 +11,7 @@ fn main() {
     println!("{}", result);
 }
 
-fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
-    if x.len() > y.len() { x } else { y }
+fn longest<'a>(x: &'a str, y: &str) -> &'a str {
+    println!("y is {}", y);
+    x
 }
