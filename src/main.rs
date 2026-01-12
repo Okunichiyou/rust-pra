@@ -11,7 +11,14 @@ fn main() {
     println!("{}", result);
 }
 
-fn longest<'a>(x: &'a str, y: &str) -> &'a str {
-    println!("y is {}", y);
-    x
+fn longest<'a>(x: &'a str, y: &str) -> String {
+    let result = String::from("xxx yyy zzz");
+    result
 }
+
+// resultのライフタイムは関数内で終了するので、resultへの参照を返せない
+// result.clone().as_str()とかにしても同じ
+// fn longest<'a>(x: &'a str, y: &str) -> &'a str {
+//     let result = String::from("xxx yyy zzz");
+//     result.as_str()
+// }
