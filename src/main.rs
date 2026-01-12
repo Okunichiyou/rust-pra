@@ -1,21 +1,16 @@
 fn main() {
-    let v1 = [1, 2, 3, 4, 5];
-    let v2 = [3, 4, 5];
-
-    let p = pick2(&v1, &v2, 3);
-    for ss in p.0 {
-        println!("{}", ss);
+    let string1 = String::from("abcd");
+    let result;
+    {
+        let string2 = String::from("xyz");
+        result = longest(&string1, &string2);
     }
 
-    for ss in p.1 {
-        println!("{}", ss);
-    }
+    // resultのライフタイムはここまで存在しているが、string2のライフタイムがすでに終わっている
+    // resultを使うにはstring2のライフタイムがここまで存在する必要があるけど、存在していないのでコンパイルエラーになる
+    println!("{}", result);
 }
 
-fn pick1(x: &[i32], end: usize) -> &[i32] {
-    &x[..end]
-}
-
-fn pick2(x: &[i32], y: &[i32], end: usize) -> (&[i32], &[i32]) {
-    (&x[..end], &y[..end])
+fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
+    if x.len() > y.len() { x } else { y }
 }
